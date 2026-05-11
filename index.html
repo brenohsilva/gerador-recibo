@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gerador de Recibos</title>
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+
+<body>
+  <main class="app">
+    <section class="card form-card" id="form-section">
+      <h1>Gerar Recibo</h1>
+      <p class="subtitle">Preencha os dados abaixo para visualizar o recibo.</p>
+
+      <form id="budget-form">
+        <div class="grid four-columns">
+          <label>
+            Cliente
+            <input type="text" id="client" required placeholder="Nome do cliente" />
+          </label>
+
+          <label>
+            Telefone
+            <input type="text" id="phone" placeholder="(XX) XXXXX-XXXX" />
+          </label>
+
+          <label>
+            Data
+            <input type="date" id="date" required />
+          </label>
+
+          <label>
+            Validade
+            <input type="date" id="validity" required />
+          </label>
+        </div>
+
+        <div class="products-header">
+          <h2>Produtos</h2>
+          <button type="button" class="secondary-button" id="add-product-button">
+            Adicionar mais produtos
+          </button>
+        </div>
+
+        <div id="products-container"></div>
+
+        <div class="form-actions">
+          <button type="submit" class="primary-button">Gerar visualização</button>
+        </div>
+      </form>
+    </section>
+
+    <section class="preview-actions hidden" id="preview-actions">
+      <button type="button" class="secondary-button" id="back-button">Editar dados</button>
+      <button type="button" class="primary-button" id="print-button">Imprimir / Salvar PDF</button>
+    </section>
+
+    <section class="budget-page hidden" id="budget-preview">
+      <header class="company-header">
+        <div class="logo-box">
+          <div class="logo-title">BC PRODUTOS</div>
+        </div>
+        <div class="company-name">BC PRODUTOS</div>
+        <div class="company-address">Rua Engenho Mameluco, 7 - Recife - PE</div>
+      </header>
+
+      <section class="customer-info">
+        <p><strong>Cliente:</strong> <span id="preview-client"></span></p>
+        <div class="inline-info">
+          <p><strong>Data:</strong> <span id="preview-date"></span></p>
+          <p><strong>Telefone:</strong> <span id="preview-phone"></span></p>
+          <p><strong>Validade:</strong> <span id="preview-validity"></span></p>
+        </div>
+      </section>
+
+      <div class="budget-title">RECIBO: 257692-0</div>
+
+      <table class="products-table">
+        <thead>
+          <tr>
+            <th>Código<br><span>Local</span></th>
+            <th>Descrição<br><span>UN</span></th>
+            <th>Marca<br><span>Quantidade</span></th>
+            <th>Unitário</th>
+            <th>Valor</th>
+          </tr>
+        </thead>
+        <tbody id="preview-products"></tbody>
+      </table>
+
+      <footer class="total-row">
+        <span>Valor Total:</span>
+        <span id="preview-total">R$ 0,00</span>
+      </footer>
+    </section>
+  </main>
+
+  <template id="product-template">
+    <div class="product-card">
+      <div class="product-card-header">
+        <h3>Produto <span class="product-number"></span></h3>
+        <button type="button" class="remove-product-button">Remover</button>
+      </div>
+
+      <div class="grid four-columns">
+        <label>
+          Código
+          <input type="text" name="code" required placeholder="Ex: 040653" />
+        </label>
+
+        <label>
+          Descrição
+          <input type="text" name="description" required placeholder="Ex: BOMBA COMBUSTÍVEL" />
+        </label>
+
+        <label>
+          Marca
+          <input type="text" name="brand" placeholder="Ex: BOSCH" />
+        </label>
+
+        <label>
+          Local
+          <input type="text" name="location" placeholder="Ex: 1.D02.002" />
+        </label>
+
+        <label>
+          UN
+          <input type="text" name="unit" required placeholder="Ex: PC" />
+        </label>
+
+        <label>
+          Quantidade
+          <input type="number" name="quantity" min="0" step="0.001" required value="1" />
+        </label>
+
+        <label>
+          Unitário
+          <input type="number" name="unitPrice" min="0" step="0.01" required value="0" />
+        </label>
+
+        <label>
+          Valor
+          <input type="text" name="total" readonly value="R$ 0,00" />
+        </label>
+      </div>
+    </div>
+  </template>
+
+  <script src="js/script.js"></script>
+</body>
+
+</html>

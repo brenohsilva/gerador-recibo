@@ -1,0 +1,299 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: Arial, Helvetica, sans-serif;
+  background: #eeeeee;
+  color: #111111;
+}
+
+.app {
+  width: min(1100px, 100%);
+  margin: 0 auto;
+  padding: 32px 16px;
+}
+
+.card {
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 24px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+}
+
+h1,
+h2,
+h3,
+p {
+  margin-top: 0;
+}
+
+.subtitle {
+  color: #555555;
+}
+
+.grid {
+  display: grid;
+  gap: 16px;
+}
+
+.three-columns {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.four-columns {
+  grid-template-columns: repeat(4, 1fr);
+}
+
+label {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+input {
+  height: 40px;
+  border: 1px solid #cccccc;
+  border-radius: 8px;
+  padding: 0 12px;
+  font-size: 14px;
+}
+
+input[readonly] {
+  background: #f5f5f5;
+  cursor: not-allowed;
+}
+
+.products-header,
+.product-card-header,
+.form-actions,
+.preview-actions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.products-header {
+  margin: 28px 0 16px;
+}
+
+.product-card {
+  border: 1px solid #dddddd;
+  border-radius: 10px;
+  padding: 16px;
+  margin-bottom: 16px;
+  background: #fafafa;
+}
+
+.product-card-header {
+  margin-bottom: 16px;
+}
+
+button {
+  border: 0;
+  border-radius: 8px;
+  padding: 11px 16px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.primary-button {
+  background: #111111;
+  color: #ffffff;
+}
+
+.secondary-button {
+  background: #e6e6e6;
+  color: #111111;
+}
+
+.remove-product-button {
+  background: #ffe0e0;
+  color: #a30000;
+}
+
+.form-actions {
+  justify-content: flex-end;
+  margin-top: 24px;
+}
+
+.preview-actions {
+  margin: 24px 0;
+}
+
+.hidden {
+  display: none !important;
+}
+
+.budget-page {
+  width: 420px;
+  min-height: 590px;
+  margin: 0 auto;
+  background: #ffffff;
+  padding: 18px 18px 24px;
+  border: 1px solid #bbbbbb;
+  font-size: 12px;
+}
+
+.company-header {
+  text-align: center;
+  border-bottom: 2px solid #111111;
+  padding-bottom: 6px;
+}
+
+.logo-box {
+  width: 330px;
+  margin: 0 auto 8px;
+  border: 1px solid #222222;
+  border-right: 28px solid #111111;
+  transform: skew(-8deg);
+  padding: 6px 12px 5px;
+}
+
+.logo-title,
+.logo-subtitle {
+  transform: skew(8deg);
+}
+
+.logo-title {
+  font-size: 34px;
+  font-weight: 900;
+  letter-spacing: 2px;
+  line-height: 1;
+}
+
+.logo-subtitle {
+  display: inline-block;
+  background: #111111;
+  color: #ffffff;
+  padding: 2px 6px;
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.company-name {
+  font-size: 14px;
+  font-weight: 700;
+  margin-bottom: 2px;
+}
+
+.company-address {
+  font-size: 11px;
+}
+
+.customer-info {
+  padding: 6px 0;
+  border-bottom: 1px solid #111111;
+}
+
+.customer-info p {
+  margin: 0 0 3px;
+}
+
+.inline-info {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.budget-title {
+  background: #111111;
+  color: #ffffff;
+  text-align: center;
+  font-weight: 900;
+  padding: 3px;
+  margin: 4px 0;
+  font-size: 14px;
+}
+
+.products-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 11px;
+}
+
+.products-table th {
+  text-align: left;
+  border-bottom: 1px solid #111111;
+  padding: 2px 3px;
+  font-size: 10px;
+}
+
+.products-table th span {
+  font-weight: 700;
+}
+
+.products-table td {
+  padding: 3px;
+  vertical-align: top;
+}
+
+.products-table td:nth-child(3),
+.products-table td:nth-child(4),
+.products-table td:nth-child(5) {
+  text-align: right;
+}
+
+.product-location-row td {
+  padding-top: 0;
+  color: #222222;
+  border-bottom: 1px dotted #dddddd;
+}
+
+.total-row {
+  border-top: 2px solid #111111;
+  display: flex;
+  justify-content: space-between;
+  padding-top: 4px;
+  font-size: 14px;
+  font-weight: 900;
+}
+
+@media (max-width: 800px) {
+  .three-columns,
+  .four-columns {
+    grid-template-columns: 1fr;
+  }
+
+  .products-header,
+  .product-card-header,
+  .preview-actions {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .budget-page {
+    width: 100%;
+  }
+
+  .logo-box {
+    width: 100%;
+  }
+}
+
+@media print {
+  body {
+    background: #ffffff;
+  }
+
+  .form-card,
+  .preview-actions {
+    display: none !important;
+  }
+
+  .app {
+    padding: 0;
+  }
+
+  .budget-page {
+    display: block !important;
+    border: none;
+    box-shadow: none;
+    margin: 0 auto;
+  }
+}
