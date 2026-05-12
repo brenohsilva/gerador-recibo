@@ -11,7 +11,9 @@ const printButton = document.getElementById('print-button');
 const previewClient = document.getElementById('preview-client');
 const previewDate = document.getElementById('preview-date');
 const previewValidity = document.getElementById('preview-validity');
+const previewPhone = document.getElementById('preview-phone');
 const previewProducts = document.getElementById('preview-products');
+const previewReceiptCode = document.getElementById('preview-receipt-code');
 const previewTotal = document.getElementById('preview-total');
 
 function formatCurrency(value) {
@@ -25,6 +27,10 @@ function formatDate(dateValue) {
   if (!dateValue) return '';
   const [year, month, day] = dateValue.split('-');
   return `${day}/${month}/${year}`;
+}
+
+function generateReceiptCode() {
+  return Math.floor(100000 + Math.random() * 900000).toString();
 }
 
 function updateProductNumbers() {
@@ -96,6 +102,8 @@ function renderPreview(products) {
   previewClient.textContent = document.getElementById('client').value;
   previewDate.textContent = formatDate(document.getElementById('date').value);
   previewValidity.textContent = formatDate(document.getElementById('validity').value);
+  previewReceiptCode.textContent = generateReceiptCode();
+  previewPhone.textContent = document.getElementById('phone').value;
   previewProducts.innerHTML = '';
 
   products.forEach((product) => {
